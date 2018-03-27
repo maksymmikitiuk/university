@@ -13,7 +13,6 @@ import javax.validation.Valid;
 
 @SessionScope
 @Controller
-//@RequestMapping("/")
 public class UserController {
     @Autowired
     UserService userService;
@@ -35,8 +34,8 @@ public class UserController {
         return "login";
     }
 
-//    @RequestMapping(value = "/login", method = RequestMethod.POST)
-//    public String login() {
-//        return "login";
-//    }
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test() {
+        return "test";
+    }
 }
