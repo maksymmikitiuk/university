@@ -1,7 +1,7 @@
 package com.maksymmikitiuk.university.auth;
 
 import com.maksymmikitiuk.university.dao.UserDao;
-import com.maksymmikitiuk.university.model.User;
+import com.maksymmikitiuk.university.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

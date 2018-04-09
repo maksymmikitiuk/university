@@ -1,4 +1,4 @@
-package com.maksymmikitiuk.university.model;
+package com.maksymmikitiuk.university.model.user;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -42,7 +42,8 @@ public class User {
     @Column(name = "other_name", nullable = false)
     private String otherName;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false,
+            unique = true)
     private String email;
 
     public User() {
@@ -118,5 +119,9 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUserPIB(){
+        return lastName + " " + firstName.toUpperCase().charAt(0) + ". " + otherName.toUpperCase().charAt(0) + ".";
     }
 }
