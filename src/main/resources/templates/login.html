@@ -13,7 +13,7 @@
 
 
                 <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
-                    <input class="input100" type="text" name="mobile" placeholder="Username"/>
+                    <input class="input100" type="text" name="username" placeholder="Username"/>
                     <span class="focus-input100"></span>
                 </div>
 
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="p-t-20" style="width: 100%; text-align: center;">
-                    <a href="#" class="txt1">Forgot?</a>
+                    <a th:href="@{/forgotpassword}" class="txt1">Forgot?</a>
                     <b class="txt1"> / </b>
                     <a th:href="@{/registration}" class="txt1">Don't Have an Account?</a>
                 </div>
@@ -46,5 +46,8 @@
         </div>
     </div>
 </div>
+
+<script th:inline="javascript" th:src="@{'/js/sign_in_up.js?ver='+${#calendars.millisecond(#dates.createNow())}}" ></script>
+
 </body>
 </html>

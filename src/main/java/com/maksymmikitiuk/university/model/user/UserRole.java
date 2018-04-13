@@ -1,4 +1,4 @@
-package com.maksymmikitiuk.university.model;
+package com.maksymmikitiuk.university.model.user;
 
 import javax.persistence.*;
 import java.util.Set;
