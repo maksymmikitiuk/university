@@ -29,7 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/login", "/forgotpassword/**", "/registration/**").permitAll()
                 .anyRequest().authenticated()
-                .and().formLogin()  //login configuration
+                .and().formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
                 .usernameParameter("username")

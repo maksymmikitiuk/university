@@ -5,7 +5,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "roles")
-public class UserRole {
+public class Role {
 
     @Id
     @Column(name = "role_id")
@@ -19,7 +19,7 @@ public class UserRole {
     @Column(name = "role", nullable = false, length = 45)
     private String role;
 
-    public UserRole() {
+    public Role() {
 
     }
 

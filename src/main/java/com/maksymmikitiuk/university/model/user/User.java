@@ -31,7 +31,7 @@ public class User {
                     name = "user_id", referencedColumnName = "user_id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "role_id"))
-    private Set<UserRole> roles;
+    private Set<Role> roles;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -81,11 +81,11 @@ public class User {
         this.enabled = enabled;
     }
 
-    public Set<UserRole> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<UserRole> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 

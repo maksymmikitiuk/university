@@ -1,6 +1,8 @@
 package com.maksymmikitiuk.university.service.email;
 
+import com.maksymmikitiuk.university.dao.EmailDao;
 import com.maksymmikitiuk.university.model.Mail;
+import org.hibernate.validator.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
@@ -24,11 +26,23 @@ public class EmailServiceImpl implements EmailService {
     public JavaMailSender emailSender;
 
     @Autowired
+    EmailDao emailDao;
+
+    @Autowired
     private SpringTemplateEngine templateEngine;
 
+    private void saveToDB(SimpleMailMessage simpleMailMessage) {
+        Mail mail = new Mail();
+        mail.setTo(simpleMailMessage.getTo()[0]);
+        mail.setSubject(simpleMailMessage.getSubject());
+        mail.setText(simpleMailMessage.getText());
+        mail.setSendDate(simpleMailMessage.getSentDate());
+        emailDao.save(mail);
+    }
+
     public void sendSimpleMessage(String to, String subject, String text) {
+        SimpleMailMessage message = new SimpleMailMessage();
         try {
-            SimpleMailMessage message = new SimpleMailMessage();
             message.setTo(to);
             message.setSubject(subject);
             message.setText(text);
@@ -37,6 +51,8 @@ public class EmailServiceImpl implements EmailService {
         } catch (MailException exception) {
             exception.printStackTrace();
         }
+
+
     }
 
     public void sendSimpleMessage(Mail mail, String template) {
